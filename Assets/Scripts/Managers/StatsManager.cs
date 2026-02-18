@@ -1,9 +1,6 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.XR;
 
-public class Stats : Singleton<Stats>
+public class StatsManager : Singleton<StatsManager>
 {
     [SerializeField] private float health = 0f;
     [SerializeField] private float damages = 0f;
