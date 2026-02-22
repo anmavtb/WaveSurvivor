@@ -5,7 +5,7 @@ public class StatsManager : Singleton<StatsManager>
     [SerializeField] private float health = 0f;
     [SerializeField] private float damages = 0f;
     [SerializeField] private float range = 0f;
-    [SerializeField] private float attackSpeed = 1f;
+    [SerializeField] private float attackSpeed = 0f;
     [SerializeField] private float critChance = 0f;
     [SerializeField] private float speed = 0f;
 
@@ -37,7 +37,7 @@ public class StatsManager : Singleton<StatsManager>
                 break;
 
             case ModifierType.PER:
-                tempStat *= 1 + _modifierValue / 100;
+                tempStat *= 1 + (_modifierValue / 100);
                 break;
         }
         float maxValue = 100;

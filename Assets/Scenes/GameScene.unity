@@ -477,8 +477,10 @@ GameObject:
   m_Component:
   - component: {fileID: 882494251}
   - component: {fileID: 882494250}
+  - component: {fileID: 882494255}
   - component: {fileID: 882494253}
   - component: {fileID: 882494252}
+  - component: {fileID: 882494254}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -528,9 +530,9 @@ MonoBehaviour:
   health: 0
   damages: 0
   range: 0
-  attackSpeed: 1
+  attackSpeed: 0
   critChance: 0
-  speed: 10
+  speed: 0
 --- !u!114 &882494253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +554,37 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &882494254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882494249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac87fbb632f94d43a6ea014e95d307a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackManager
+  baseAttackSpeed: 0.5
+  currentAttackSpeed: 0.5
+  canAttack: 0
+--- !u!114 &882494255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882494249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897f9c4b347c6754a950be6830aec1ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeManager
+  waveNumber: 1
+  timer: 0
+  gameTime: 0
+  displayTimer: 0
 --- !u!1 &989079247
 GameObject:
   m_ObjectHideFlags: 0
