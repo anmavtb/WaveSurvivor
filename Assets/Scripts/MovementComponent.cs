@@ -16,10 +16,10 @@ public class MovementComponent : MonoBehaviour
         Move();
     }
 
-    void Move()
+    private void Move()
     {
         Vector2 _movementValue = InputManager.Instance.Move.ReadValue<Vector2>();
-        transform.position += transform.up * _movementValue.y * Time.deltaTime * (1 + (StatsManager.Instance.Speed / 100));
-        transform.position += transform.right * _movementValue.x * Time.deltaTime * (1 + (StatsManager.Instance.Speed / 100));
+        transform.position += transform.up * _movementValue.y * Time.deltaTime * (5 + (StatsManager.Instance.Speed / 100));
+        transform.position += transform.right * _movementValue.x * Time.deltaTime * (5 + (StatsManager.Instance.Speed / 100));
     }
 }
