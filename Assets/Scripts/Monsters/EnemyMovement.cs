@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private GameObject target = null;
+    [SerializeField] private Transform target = null;
     [SerializeField] private Vector2 destination = Vector2.zero;
     [SerializeField] private float speed = 2f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //target = GetComponent<GameObject>();
+        target = StatsManager.Instance.GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void UpdateDestination()
     {
-        destination = target.transform.position;
+        destination = target.position;
     }
 
     private void Move()
