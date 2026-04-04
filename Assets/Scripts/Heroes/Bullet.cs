@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float weaponSpeed = 1f;
 
+    [SerializeField] public GameObject target = null;
     [SerializeField] public Vector2 direction;
 
     [SerializeField] private float lifeTime = 10f;
@@ -20,6 +21,12 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         MoveWeapon();
+    }
+
+    public void SetTarget(GameObject enemy)
+    {
+        if (enemy == null) return;
+        direction = (enemy.transform.position - transform.position).normalized;
     }
 
     private void MoveWeapon()

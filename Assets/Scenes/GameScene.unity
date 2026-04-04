@@ -376,9 +376,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1565401857}
@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 1565401859}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -812,7 +812,7 @@ MonoBehaviour:
   range: 1
   attackCooldown: 0
   attackRate: 0
-  canAttack: 0
+  nearestEnemy: {fileID: 0}
   bulletPrefab: {fileID: 2911020740573242023, guid: 3f33a3d6bc7d51144be75cee20990b02, type: 3}
 --- !u!114 &1565401860
 MonoBehaviour:
