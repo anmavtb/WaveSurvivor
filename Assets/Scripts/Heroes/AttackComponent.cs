@@ -31,8 +31,8 @@ public class AttackComponent : MonoBehaviour
 
     private void UpdateStats()
     {
-        attackSpeed = 1 + (StatsManager.Instance.PlayerAttackSpeed / 100);
-        range = 5 + (StatsManager.Instance.PlayerRange/10);
+        attackSpeed = 1 + (StatsManager.Instance.AttackSpeed.Value / 100);
+        range = 5 + (StatsManager.Instance.Range.Value / 10);
     }
 
     private void Attack()

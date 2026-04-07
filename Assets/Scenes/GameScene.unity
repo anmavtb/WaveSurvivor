@@ -826,13 +826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea9bd296dd35554dbc85a3a96e4191c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatsManager
-  playerHealth: 0
-  playerDamages: 0
-  playerRange: 0
-  playerAttackSpeed: 0
-  playerCritChance: 0
-  playerSpeed: 0
-  maxStatValue: 100
 --- !u!114 &1565401861
 MonoBehaviour:
   m_ObjectHideFlags: 0

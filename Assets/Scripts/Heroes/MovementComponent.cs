@@ -32,6 +32,6 @@ public class MovementComponent : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movementValue.normalized * (5 + (StatsManager.Instance.PlayerSpeed / 100)) * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movementValue.normalized * (5 + (StatsManager.Instance.Speed.Value / 100)) * Time.fixedDeltaTime);
     }
 }

@@ -1,22 +1,22 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StatsManager : Singleton<StatsManager>
 {
-    [SerializeField] private float playerHealth = 0f;
-    [SerializeField] private float playerDamages = 0f;
-    [SerializeField] private float playerRange = 0f;
-    [SerializeField] private float playerAttackSpeed = 0f;
-    [SerializeField] private float playerCritChance = 0f;
-    [SerializeField] private float playerSpeed = 0f;
 
-    [SerializeField] private float maxStatValue = 100f;
+    [SerializeField] private Stat health = new Stat(0, 1, 999);
+    [SerializeField] private Stat damages = new Stat(0, -100, 100);
+    [SerializeField] private Stat range = new Stat(0, -100, 100);
+    [SerializeField] private Stat attackSpeed = new Stat(0, -100, 100);
+    [SerializeField] private Stat critChance = new Stat(0, -100, 100);
+    [SerializeField] private Stat speed = new Stat(0, -100, 100);
 
-    public float PlayerHealth => playerHealth;
-    public float PlayerDamage => playerDamages;
-    public float PlayerRange => playerRange;
-    public float PlayerAttackSpeed => playerAttackSpeed;
-    public float PlayerCritChance => playerCritChance;
-    public float PlayerSpeed => playerSpeed;
+    public Stat Health => health;
+    public Stat Damages => damages;
+    public Stat Range => range;
+    public Stat AttackSpeed => attackSpeed;
+    public Stat CritChance => critChance;
+    public Stat Speed => speed;
 
     public enum ModifierType
     {
@@ -25,9 +25,9 @@ public class StatsManager : Singleton<StatsManager>
         PER  // %
     }
 
-    public float StatModifier(float _statValue, ModifierType _modifierType, float _modifierValue)
+    public float StatModifier(Stat _stat, ModifierType _modifierType, float _modifierValue)
     {
-        float tempStat = _statValue;
+        float tempStat = _stat.Value;
         switch (_modifierType)
         {
             case ModifierType.ADD:
@@ -42,12 +42,12 @@ public class StatsManager : Singleton<StatsManager>
                 tempStat *= 1 + (_modifierValue / 100);
                 break;
         }
-        return CheckIfStatMaxxed(tempStat, maxStatValue);
+        return CheckIfStatClamped(tempStat, _stat);
     }
 
-    public float CheckIfStatMaxxed(float _statValue, float _maxValue)
+    private float CheckIfStatClamped(float _statValue, Stat _stat)
     {
-        if (_statValue > _maxValue) _statValue = _maxValue;
+        _statValue = Mathf.Clamp(_statValue, _stat.Min, _stat.Max);
         return _statValue;
     }
 }
