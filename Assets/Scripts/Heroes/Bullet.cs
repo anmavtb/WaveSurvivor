@@ -9,8 +9,6 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private float lifeTime = 10f;
 
-    //public Vector2 Direction = direction;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,5 +30,14 @@ public class Bullet : MonoBehaviour
     private void MoveWeapon()
     {
         transform.Translate(direction * weaponSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D _collision)
+    {
+        if (_collision.CompareTag("Enemy"))
+        {
+            // Damage enemy
+            Destroy(gameObject);
+        }
     }
 }
