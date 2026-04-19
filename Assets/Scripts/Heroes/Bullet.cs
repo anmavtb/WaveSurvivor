@@ -21,10 +21,10 @@ public class Bullet : MonoBehaviour
         MoveWeapon();
     }
 
-    public void SetTarget(GameObject enemy)
+    public void SetTarget(GameObject _enemy)
     {
-        if (enemy == null) return;
-        direction = (enemy.transform.position - transform.position).normalized;
+        if (_enemy == null) return;
+        direction = (_enemy.transform.position - transform.position).normalized;
     }
 
     private void MoveWeapon()

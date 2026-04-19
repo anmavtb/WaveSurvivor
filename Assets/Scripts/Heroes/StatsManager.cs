@@ -1,15 +1,14 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StatsManager : Singleton<StatsManager>
 {
-
+    // new Stat(Base Value, Minimum Value, Maximum Value)
     [SerializeField] private Stat health = new Stat(0, 1, 999);
-    [SerializeField] private Stat damages = new Stat(0, -100, 100);
-    [SerializeField] private Stat range = new Stat(0, -100, 100);
-    [SerializeField] private Stat attackSpeed = new Stat(0, -100, 100);
-    [SerializeField] private Stat critChance = new Stat(0, -100, 100);
-    [SerializeField] private Stat speed = new Stat(0, -100, 100);
+    [SerializeField] private Stat damages = new Stat(0, -999, 999);
+    [SerializeField] private Stat range = new Stat(0, -999, 999);
+    [SerializeField] private Stat attackSpeed = new Stat(0, -999, 999);
+    [SerializeField] private Stat critChance = new Stat(0, -999, 999);
+    [SerializeField] private Stat speed = new Stat(0, -999, 999);
 
     public Stat Health => health;
     public Stat Damages => damages;
