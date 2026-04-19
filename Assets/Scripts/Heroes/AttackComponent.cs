@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class AttackComponent : MonoBehaviour
 {
@@ -8,27 +10,35 @@ public class AttackComponent : MonoBehaviour
     [SerializeField] private float attackCooldown = 0f;
     [SerializeField] private float attackRate = 1f;
 
-    [SerializeField] private bool canAttack = false;
+    [SerializeField] private GameObject nearestEnemy;
 
     [SerializeField] private GameObject bulletPrefab = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        attackSpeed = 1 + (StatsManager.Instance.PlayerAttackSpeed / 100);
-        //range = 1 + (StatsManager.Instance.PlayerRange / 100);
+        UpdateStats();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canAttack) AttackTimer();
+        UpdateStats();
+        nearestEnemy = GetNearestEnemy();
+        if (nearestEnemy == null) return;
+        AttackTimer();
+    }
+
+    private void UpdateStats()
+    {
+        attackSpeed = 1 + (StatsManager.Instance.AttackSpeed.Value / 100);
+        range = 5 + (StatsManager.Instance.Range.Value / 10);
     }
 
     private void Attack()
     {
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().direction = new Vector2(1, 0);
+        bullet.GetComponent<Bullet>().SetTarget(nearestEnemy);
     }
 
     private void AttackTimer()
@@ -41,5 +51,33 @@ public class AttackComponent : MonoBehaviour
             attackCooldown = 0;
             Attack();
         }
+    }
+
+    private GameObject GetNearestEnemy()
+    {
+        List<GameObject> enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
+        float minDist = range;
+        foreach (GameObject enemy in enemies)
+        {
+            float dist = Vector2.Distance(transform.position, enemy.transform.position);
+            if (dist < minDist)
+            {
+                minDist = dist;
+                nearestEnemy = enemy;
+                return nearestEnemy;
+            }
+        }
+        return null;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        AnmaGizmos.DrawSphere(transform.position, range, Color.red);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (GetNearestEnemy() == null) return;
+        AnmaGizmos.DrawSphere(nearestEnemy.transform.position, 1, Color.red);
     }
 }

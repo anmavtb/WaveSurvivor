@@ -4,11 +4,10 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float weaponSpeed = 1f;
 
+    [SerializeField] public GameObject target = null;
     [SerializeField] public Vector2 direction;
 
     [SerializeField] private float lifeTime = 10f;
-
-    //public Vector2 Direction = direction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,8 +21,23 @@ public class Bullet : MonoBehaviour
         MoveWeapon();
     }
 
+    public void SetTarget(GameObject _enemy)
+    {
+        if (_enemy == null) return;
+        direction = (_enemy.transform.position - transform.position).normalized;
+    }
+
     private void MoveWeapon()
     {
         transform.Translate(direction * weaponSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D _collision)
+    {
+        if (_collision.CompareTag("Enemy"))
+        {
+            // Damage enemy
+            Destroy(gameObject);
+        }
     }
 }

@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7794924878514439883
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 302756570185586924, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+    - target: {fileID: 302756570185586924, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 915059755802588201, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_Name
+      value: SimpleChaser
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130910213026458731, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130910213026458731, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130910213026458731, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130910213026458731, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130910213026458731, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130910213026458731, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130910213026458731, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130910213026458731, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130910213026458731, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130910213026458731, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -2595251057944423983, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 915059755802588201, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3843513301627130681}
+    - targetCorrespondingSourceObject: {fileID: 915059755802588201, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3574594424716349970}
+  m_SourcePrefab: {fileID: 100100000, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+--- !u!1 &6962515680619606754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 915059755802588201, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+  m_PrefabInstance: {fileID: 7794924878514439883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-3843513301627130681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962515680619606754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2f9cd7df6ef4d4a879ec16568a356d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleChaser
+  health: 3
+  speed: 2
+  target: {fileID: 0}
+--- !u!114 &3574594424716349970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962515680619606754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003e5942c99c8be4284ccbfa2049183c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
