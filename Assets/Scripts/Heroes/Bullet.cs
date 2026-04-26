@@ -36,7 +36,10 @@ public class Bullet : MonoBehaviour
     {
         if (_collision.CompareTag("Enemy"))
         {
-            // Damage enemy
+
+            float _damages = 1 + (1 * (StatsManager.Instance.Damages.Value / 100));
+            EnemyHealth enemy = _collision.gameObject.GetComponent<EnemyHealth>();
+            enemy.TakeDamage(_damages, direction);
             Destroy(gameObject);
         }
     }
