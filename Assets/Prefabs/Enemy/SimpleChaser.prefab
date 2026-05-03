@@ -71,6 +71,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 915059755802588201, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3574594424716349970}
+    - targetCorrespondingSourceObject: {fileID: 915059755802588201, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1694682147972166554}
   m_SourcePrefab: {fileID: 100100000, guid: 571642288cd4dcb4b9831ef5e9caff16, type: 3}
 --- !u!1 &6962515680619606754 stripped
 GameObject:
@@ -91,7 +94,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleChaser
   health: 3
   speed: 2
-  target: {fileID: 0}
 --- !u!114 &3574594424716349970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,3 +106,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003e5942c99c8be4284ccbfa2049183c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+--- !u!114 &1694682147972166554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962515680619606754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d6fda9fb9f8b448aa23b6a2298fb2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  expDrop: {fileID: 2911020740573242023, guid: 552c5e573074b7942af8c8f5bdf5cafc, type: 3}

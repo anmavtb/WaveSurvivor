@@ -3,9 +3,9 @@ using UnityEngine;
 [System.Serializable]
 public class Stat
 {
-    private float value;
-    private float min;
-    private float max;
+    [SerializeField] private float value;
+    [SerializeField] private float min;
+    [SerializeField] private float max;
 
     public float Value => value;
     public float Min => min;
