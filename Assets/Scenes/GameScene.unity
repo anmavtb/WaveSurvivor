@@ -752,10 +752,12 @@ GameObject:
   - component: {fileID: 1565401857}
   - component: {fileID: 1565401856}
   - component: {fileID: 1565401862}
-  - component: {fileID: 1565401858}
+  - component: {fileID: 1565401864}
   - component: {fileID: 1565401861}
-  - component: {fileID: 1565401860}
+  - component: {fileID: 1565401858}
   - component: {fileID: 1565401859}
+  - component: {fileID: 1565401860}
+  - component: {fileID: 1565401863}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -883,6 +885,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea9bd296dd35554dbc85a3a96e4191c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatsManager
+  health:
+    value: 1
+    min: 1
+    max: 999
+  damages:
+    value: 0
+    min: -999
+    max: 999
+  range:
+    value: 0
+    min: -999
+    max: 999
+  attackSpeed:
+    value: 0
+    min: -999
+    max: 999
+  critChance:
+    value: 0
+    min: -999
+    max: 999
+  speed:
+    value: 0
+    min: -999
+    max: 999
 --- !u!114 &1565401861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,6 +957,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1565401863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565401854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bec52cf74158b84db4052cb04882499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerExp
+  playerLevel: 1
+  currentExp: 0
+  expToNextLevel: 10
+--- !u!114 &1565401864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565401854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87949340b4c2fad45a7594eb16e564ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBase
 --- !u!1001 &1866489597
 PrefabInstance:
   m_ObjectHideFlags: 0

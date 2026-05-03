@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
     protected EnemyBase enemyBase;
     protected int currentHealth;
 
+    [SerializeField] protected GameObject expDrop;
 
     protected void Awake()
     {
@@ -24,9 +25,14 @@ public class EnemyHealth : MonoBehaviour
         transform.position += (Vector3)_hitDirection.normalized * 0.5f;
     }
 
+    protected void DropExp()
+    {
+        Instantiate(expDrop, transform.position, Quaternion.identity);
+    }
+
     protected void KillEnemy()
     {
-        // Drop XP and/or Loot
+        DropExp();
         enemyBase.DestroyEnemy();
     }
 }

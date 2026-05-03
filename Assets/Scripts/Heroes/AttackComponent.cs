@@ -60,7 +60,7 @@ public class AttackComponent : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             float dist = Vector2.Distance(transform.position, enemy.transform.position);
-            if (dist < minDist)
+            if (dist <= minDist)
             {
                 minDist = dist;
                 nearestEnemy = enemy;
