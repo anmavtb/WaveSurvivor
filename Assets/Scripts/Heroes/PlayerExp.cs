@@ -7,6 +7,8 @@ public class PlayerExp : Singleton<PlayerExp>
     [SerializeField] private int currentExp = 0;
     [SerializeField] private int expToNextLevel = 10;
 
+    public event Action OnLevelUp;
+
     public int PlayerLevel => playerLevel;
     public int CurrentExp => currentExp;
     public int ExpToNextLevel => expToNextLevel;
@@ -25,6 +27,7 @@ public class PlayerExp : Singleton<PlayerExp>
     {
         playerLevel++;
         expToNextLevel = Mathf.RoundToInt(expToNextLevel * 1.5f);
+        OnLevelUp?.Invoke();
         StatsManager.Instance.StatModifier(StatsManager.Instance.Health, StatsManager.ModifierType.ADD, 1);
         // Choose an upgrade
     }
