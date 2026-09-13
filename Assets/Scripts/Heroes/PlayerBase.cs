@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
@@ -12,45 +10,42 @@ using UnityEngine;
 
 public class PlayerBase : Singleton<PlayerBase>
 {
-    List<GameObject> expDrops;
+    [SerializeField] float expGrabDist = 2f;
+    [SerializeField] float expGrabSpeed = 5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetExpDropsOnMap();
         GrabExpDrops();
-    }
-
-    private List<GameObject> GetExpDropsOnMap()
-    {
-        expDrops = GameObject.FindGameObjectsWithTag("ExpDrop").ToList();
-        return expDrops;
     }
 
     private void GrabExpDrops()
     {
-        if (expDrops == null) return;
-        float _expGrabDist = 2f;
-        foreach (GameObject expDrop in expDrops)
+        if (ExpDropManager.Instance.expDrops.Count == 0) return;
+        foreach (GameObject _drop in ExpDropManager.Instance.expDrops)
         {
-            float dist = Vector2.Distance(transform.position, expDrop.transform.position);
-            if (dist <= _expGrabDist)
+            ExpDrop _expDrop = _drop.GetComponent<ExpDrop>();
+            float dist = Vector2.Distance(transform.position, _expDrop.transform.position);
+            if (dist <= expGrabDist)
             {
-                PlayerExp.Instance.AddExp(1);
-                Destroy(expDrop);
+                _expDrop.MoveTowards(transform.position, expGrabSpeed);
             }
         }
     }
 
     private void GrabAllExp()
     {
-        if (expDrops == null) return;
-        PlayerExp.Instance.AddExp(expDrops.Count);
-        foreach (GameObject expDrop in expDrops) Destroy(expDrop);
+        if (ExpDropManager.Instance.expDrops.Count == 0) return;
+        foreach (GameObject _drop in ExpDropManager.Instance.expDrops)
+        {
+            ExpDrop _expDrop = _drop.GetComponent<ExpDrop>();
+            _expDrop.MoveTowards(transform.position, expGrabSpeed);
+        }
     }
 }

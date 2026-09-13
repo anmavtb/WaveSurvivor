@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70d6fda9fb9f8b448aa23b6a2298fb2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  expDrop: {fileID: 2911020740573242023, guid: 552c5e573074b7942af8c8f5bdf5cafc, type: 3}
+  expDrop: {fileID: 8325416266109963087, guid: 552c5e573074b7942af8c8f5bdf5cafc, type: 3}
