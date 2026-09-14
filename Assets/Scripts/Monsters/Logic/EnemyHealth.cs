@@ -28,7 +28,7 @@ public class EnemyHealth : MonoBehaviour
     protected void DropExp()
     {
         ExpDrop _drop = Instantiate(expDrop, transform.position, Quaternion.identity);
-        ExpDropManager.Instance.AddExpToList(_drop.gameObject);
+        DropManager.Instance.AddDropToList(_drop.gameObject);
     }
 
     protected void KillEnemy()
