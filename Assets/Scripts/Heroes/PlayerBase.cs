@@ -7,12 +7,10 @@ using UnityEngine;
 [RequireComponent(typeof(AttackComponent))]
 [RequireComponent(typeof(StatsManager))]
 [RequireComponent(typeof(PlayerExp))]
+[RequireComponent(typeof(PlayerMagnet))]
 
 public class PlayerBase : Singleton<PlayerBase>
 {
-    [SerializeField] float expGrabDist = 2f;
-    [SerializeField] float expGrabSpeed = 5f;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,30 +20,6 @@ public class PlayerBase : Singleton<PlayerBase>
     // Update is called once per frame
     void Update()
     {
-        GrabExpDrops();
-    }
 
-    private void GrabExpDrops()
-    {
-        if (ExpDropManager.Instance.expDrops.Count == 0) return;
-        foreach (GameObject _drop in ExpDropManager.Instance.expDrops)
-        {
-            ExpDrop _expDrop = _drop.GetComponent<ExpDrop>();
-            float dist = Vector2.Distance(transform.position, _expDrop.transform.position);
-            if (dist <= expGrabDist)
-            {
-                _expDrop.MoveTowards(transform.position, expGrabSpeed);
-            }
-        }
-    }
-
-    private void GrabAllExp()
-    {
-        if (ExpDropManager.Instance.expDrops.Count == 0) return;
-        foreach (GameObject _drop in ExpDropManager.Instance.expDrops)
-        {
-            ExpDrop _expDrop = _drop.GetComponent<ExpDrop>();
-            _expDrop.MoveTowards(transform.position, expGrabSpeed);
-        }
     }
 }
