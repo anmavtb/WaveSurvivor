@@ -18,6 +18,6 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             return;
         }
         instance = this as T;
-        instance.name += $" | [{GetType().Name}]";
+        //instance.name += $" | [{GetType().Name}]";
     }
 }

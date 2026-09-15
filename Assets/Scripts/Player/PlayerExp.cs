@@ -26,6 +26,7 @@ public class PlayerExp : Singleton<PlayerExp>
     private void LevelUp()
     {
         playerLevel++;
+        GlobalStatsManager.Instance.CheckMaxLevel(playerLevel);
         expToNextLevel = Mathf.RoundToInt(expToNextLevel * 1.5f);
         OnLevelUp?.Invoke();
         StatsManager.Instance.StatModifier(StatsManager.Instance.Health, StatsManager.ModifierType.ADD, 1);

@@ -33,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
 
     protected void KillEnemy()
     {
+        GlobalStatsManager.Instance.AddKill();
         DropExp();
         enemyBase.DestroyEnemy();
     }
